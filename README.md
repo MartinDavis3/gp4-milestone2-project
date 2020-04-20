@@ -1,3 +1,13 @@
+# Group 4 - Milestone 2 - React-Redux - Project
+
+This class assignment project seeks to implement a simple social media type web application using
+React-Redux and multiple web pages handles using React-Router.
+
+*** UNDER CONTRUCTION ***
+
+---------------------------------------------------------------------------------------------------
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
