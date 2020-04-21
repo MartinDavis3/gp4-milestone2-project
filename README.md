@@ -3,11 +3,7 @@
 This class assignment project seeks to implement a simple social media type web application using
 React-Redux and multiple web pages handles using React-Router.
 
-<<<<<<< HEAD
 *** UNDER CONSTRUCTION ***
-=======
-*** UNDER CONTRUCTION ***
->>>>>>> c2f899e7738aebccf2a605f037253a0eb463d1e7
 
 ---------------------------------------------------------------------------------------------------
 
