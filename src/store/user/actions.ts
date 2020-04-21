@@ -1,4 +1,4 @@
-import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT, User, UserCredentials } from "./types"
+import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT, UserCredentials } from "./types"
 
 export function signIn( userId: number ): UserActionTypes {
   return {

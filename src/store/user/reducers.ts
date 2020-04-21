@@ -1,4 +1,4 @@
-import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes, User } from "./types"
+import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes } from "./types"
 
 //The intitial state is populated with just one user, logged in, for the sake of brevity.
 //More can be added if required.
