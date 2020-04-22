@@ -46,7 +46,6 @@ export default class Home extends React.Component<IHomeProps> {
 
         </Grid.Row>
 
-        {/* <Divider horizontal>_</Divider> */}
 
         <Grid.Row>
 
