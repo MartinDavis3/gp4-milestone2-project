@@ -12,9 +12,14 @@ export default class Home extends React.Component<IHomeProps> {
   public render() {
     return (
 <Segment color='blue'>
+<Container >
+<Header as='h1' color='blue' textAlign='center' size='huge'>
+Welcome to our soical media wepsite </Header>
+
+</Container>
   <Container className='Segment2'>
 
-<Segment className='Segment2'>
+<Segment>
 
       <Grid columns='equal'>
 
@@ -46,6 +51,7 @@ export default class Home extends React.Component<IHomeProps> {
 
         </Grid.Row>
 
+        {/* <Divider horizontal>_</Divider> */}
 
         <Grid.Row>
 
@@ -69,8 +75,8 @@ export default class Home extends React.Component<IHomeProps> {
     <Divider vertical></Divider>
 </Grid.Column>
 
-        <Grid.Column > 
-        <Header as='h2' color='teal' textAlign='left'>
+        <Grid.Column width={7}> 
+        <Header as='h2' color='blue' textAlign='left'>
          Sign -Up
         </Header>
         <Form size='large'>
@@ -94,7 +100,7 @@ export default class Home extends React.Component<IHomeProps> {
             </Button>
         </Form>
         </Grid.Column>
-        <Grid.Column></Grid.Column>
+        {/* <Grid.Column></Grid.Column> */}
 
         </Grid.Row>
 
