@@ -14,10 +14,10 @@ export default class Home extends React.Component<IHomeProps> {
 <Segment color='blue'>
 <Container >
 <Header as='h1' color='blue' textAlign='center' size='huge'>
-Welcome to our soical media wepsite </Header>
+Welcome to our social media website </Header>
 
 </Container>
-  <Container className='Segment2'>
+  <Container >
 
 <Segment>
 
@@ -51,7 +51,6 @@ Welcome to our soical media wepsite </Header>
 
         </Grid.Row>
 
-        {/* <Divider horizontal>_</Divider> */}
 
         <Grid.Row>
 
@@ -100,7 +99,6 @@ Welcome to our soical media wepsite </Header>
             </Button>
         </Form>
         </Grid.Column>
-        {/* <Grid.Column></Grid.Column> */}
 
         </Grid.Row>
 
