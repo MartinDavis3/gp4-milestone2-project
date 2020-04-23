@@ -7,8 +7,8 @@ const initialState: UserState = {
   userList: [
     {
       userId: 1,
-      username: 'user2',
-      password: 'password2',
+      username: 'user1',
+      password: 'password1',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: '',
