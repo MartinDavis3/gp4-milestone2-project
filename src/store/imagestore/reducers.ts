@@ -26,7 +26,6 @@ const initialState: ImageState = {
 }
 export function imagestoreReducer(state = initialState): ImageState {
 
-
     return state;
 }
 
