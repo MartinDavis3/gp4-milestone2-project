@@ -13,6 +13,51 @@ const initialState: UserState = {
       userBackgroundPictureName: 'default',
       userInformation: '',
       userInbox: []
+    },
+    {
+      userId: 2,
+      username: 'user2',
+      password: 'password2',
+      userPictureName: 'default',
+      userBackgroundPictureName: 'default',
+      userInformation: '',
+      userInbox: []
+    },
+    {
+      userId: 3,
+      username: 'user3',
+      password: 'password3',
+      userPictureName: 'default',
+      userBackgroundPictureName: 'default',
+      userInformation: '',
+      userInbox: []
+    },
+    {
+      userId: 4,
+      username: 'user4',
+      password: 'password4',
+      userPictureName: 'default',
+      userBackgroundPictureName: 'default',
+      userInformation: '',
+      userInbox: []
+    },
+    {
+      userId: 5,
+      username: 'user5',
+      password: 'password5',
+      userPictureName: 'default',
+      userBackgroundPictureName: 'default',
+      userInformation: '',
+      userInbox: []
+    },
+    {
+      userId: 6,
+      username: 'user6',
+      password: 'password6',
+      userPictureName: 'default',
+      userBackgroundPictureName: 'default',
+      userInformation: '',
+      userInbox: []
     }
   ],
   loggedInUserId: 1,
@@ -25,13 +70,15 @@ export function userReducer(state = initialState, action: UserActionTypes): User
     case SIGN_IN:
       return {
         ...state,
-        loggedInUserId: action.payload, isLoggedIn: true
+        loggedInUserId: action.userId, isLoggedIn: true
       }
 
     case SIGN_UP:
-      const newUser = {userId: 1,
-        username: action.payload.username,
-        password: action.payload.password,
+      const newUser = {
+        //Because user sign-up can not be undone, userId can be set from current number of user.
+        userId: state.userList.length + 1,
+        username: action.username,
+        password: action.password,
         userPictureName: 'default',
         userBackgroundPictureName: 'default',
         userInformation: '',
@@ -45,6 +92,7 @@ export function userReducer(state = initialState, action: UserActionTypes): User
     case SIGN_OUT:
       return {
         ...state,
+        loggedInUserId: 0,
         isLoggedIn: false
       }
 
