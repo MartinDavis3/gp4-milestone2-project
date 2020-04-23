@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import Home from './Home';
+import CommentsForm from './Comments';
+
+
 
 export interface IAppProps {
 }
@@ -10,8 +12,7 @@ export default class App extends React.Component<IAppProps> {
     return (
       <Fragment>
         {/* <h1>Hello, World!</h1> */}
-        <Home/>
-
+        <CommentsForm/>
       </Fragment>
     );
   }
