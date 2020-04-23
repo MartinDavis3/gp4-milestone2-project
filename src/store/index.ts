@@ -1,12 +1,14 @@
 import { combineReducers, createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { imagestoreReducer } from "./imagestore/reducers";
 
 import { userReducer } from "./user/reducers"
 import { newsReducer } from "./news/reducers"
 
 const rootReducer = combineReducers({
     user: userReducer,
-    news: newsReducer
+    news: newsReducer,
+    imagestore: imagestoreReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>;
