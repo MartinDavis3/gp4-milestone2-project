@@ -1,4 +1,4 @@
-import {MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, Message} from "./types";
+import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE } from "./types";
 
 export function sendMessage ( userId: number ): MessageActionTypes {
     return {
