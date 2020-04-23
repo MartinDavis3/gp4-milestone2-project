@@ -1,16 +1,17 @@
-import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT, UserCredentials } from "./types"
+import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT } from "./types"
 
 export function signIn( userId: number ): UserActionTypes {
   return {
     type: SIGN_IN,
-    payload: userId
+    userId: userId
   }
 }
 
-export function signUp( userCredentials: UserCredentials ): UserActionTypes {
+export function signUp( username: string, password: string ): UserActionTypes {
   return {
     type: SIGN_UP,
-    payload: userCredentials
+    username: username,
+    password: password
   }
 }
 
