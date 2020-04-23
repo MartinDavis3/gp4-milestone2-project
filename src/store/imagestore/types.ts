@@ -1,14 +1,14 @@
 export interface Image {
-    imageId: number,
+	imageId: number,
 	imageMetadata: string,
 	imageSource: string,
 	imageName: string,
 	imageAlt: string
 
-  }
+}
 
-export interface ImageState{ 
-    userImageList: Image[ ],
-	backgroundImageList: Image[ ]
+export interface ImageState {
+	userImageList: Image[],
+	backgroundImageList: Image[]
 }
 
