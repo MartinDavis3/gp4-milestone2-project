@@ -1,19 +1,22 @@
 import * as React from 'react';
 import { Fragment } from 'react';
+import Profile from './Profile/Profile';
 
 
-import Main from './Main/main';
 
 export interface IAppProps {
+
 }
+
 
 export default class App extends React.Component<IAppProps> {
   public render() {
     return (
       <Fragment>
+<Profile/>
+
         <h1>Hello, World!</h1>
 
-     <Main/>
       </Fragment>
     );
   }
