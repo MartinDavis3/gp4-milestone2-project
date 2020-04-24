@@ -1,30 +1,33 @@
 import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE } from "./types";
 
-export function sendMessage ( userId: number ): MessageActionTypes {
+export function sendMessage( messageId: number, messageContent: string ): MessageActionTypes {
     return {
         type: SEND_MESSAGE, 
-        userId: userId
+        messageId: messageId,
+        messageContent: messageContent
     }
 }
 
-export function removeMessageFromInbox ( userId: number, messageId: number ): MessageActionTypes {
+export function removeMessageFromInbox( messageId: number, recipientUserId: number ): MessageActionTypes {
     return {
         type: REMOVE_MESSAGE_FROM_INBOX,
-        userId: userId,
-        messageId: messageId
+        messageId: messageId,
+        recipientUserId: recipientUserId
     }
 }
 
-export function addNewMessage ( userId: number ): MessageActionTypes {
+export function addNewMessage( fromUserId: number, recipientUserId: number ): MessageActionTypes {
     return {
         type: ADD_NEW_MESSAGE,
-        userId: userId
+        fromUserId: fromUserId,
+        recipientUserId: recipientUserId 
     }
 }
 
-export function addReipientToMessage ( userId: number): MessageActionTypes {
+export function addRecipientToMessage( messageId: number, recipientUserId: number): MessageActionTypes {
     return {
         type: ADD_RECIPIENT_TO_MESSAGE,
-        userId: userId
+        messageId: messageId,
+        recipientUserId: recipientUserId
     }
 }

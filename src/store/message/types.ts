@@ -20,23 +20,26 @@ export const ADD_RECIPIENT_TO_MESSAGE = "ADD_RECIPIENT_TO_MESSAGE"
 
 interface SendMessage {
     type: typeof SEND_MESSAGE
-    userId: number 
+    messageId: number 
+    messageContent: string
 }
 
 interface RemoveMessageFromInbox {
     type: typeof REMOVE_MESSAGE_FROM_INBOX
-    userId: number 
     messageId: number 
+    recipientUserId: number 
 }
 
 interface AddNewMessage {
     type: typeof ADD_NEW_MESSAGE
-    userId: number
+    fromUserId: number
+    recipientUserId: number
 }
 
 interface AddRecipientToMessage {
     type: typeof ADD_RECIPIENT_TO_MESSAGE
-    userId: number
+    messageId: number
+    recipientUserId: number
 }
 
 export type MessageActionTypes = SendMessage | RemoveMessageFromInbox | AddNewMessage | AddRecipientToMessage

@@ -1,4 +1,4 @@
-import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, MessageState } from "./types";
+import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, MessageState, Message } from "./types";
 
 const initialState: MessageState = {
   messageList: [
@@ -41,23 +41,57 @@ const initialState: MessageState = {
   nextFreeMessageId: 6
 }
 
-//This is just stubbed out to simply return the state in all cases.
-//Logic can be added later or by whoever needs it.
 export function messageReducer( state = initialState, action: MessageActionTypes): MessageState {
   switch (action.type) {
     case SEND_MESSAGE:
-      return state
+      let modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      modifiedMessage.messageContent = action.messageContent;
+      return {
+        ...state,
+        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
+      }
 
     case REMOVE_MESSAGE_FROM_INBOX:
-      return state
+      modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      modifiedMessage.recipientUserIds = modifiedMessage.recipientUserIds.filter( recipient => recipient !== action.recipientUserId);
+      //If there are no more recipients left in the list, return state without modified message (i.e. remove it)
+      if ( modifiedMessage.recipientUserIds.length === 0 ) {
+        return {
+          ...state,
+          messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId) ] 
+        }
+      } else {
+        return {
+          ...state,
+          messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
+        }
+      }
 
     case ADD_NEW_MESSAGE:
-      return state
+      const newMessage = {
+        messageId: state.nextFreeMessageId,
+        fromUserId: action.fromUserId,
+        messageContent: '',
+        recipientUserIds: [action.recipientUserId],
+        hasBeenSent: false
+      }
+      const newFreeId = state.nextFreeMessageId + 1
+      return {
+        ...state,
+        messageList: [...state.messageList, newMessage],
+        nextFreeMessageId: newFreeId
+      }
 
     case ADD_RECIPIENT_TO_MESSAGE:
-      return state
-      
+      modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      modifiedMessage.recipientUserIds.push(...modifiedMessage.recipientUserIds, action.recipientUserId);
+      return {
+        ...state,
+        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
+      }
+
     default:
       return state
+      
   }     
 }
