@@ -41,7 +41,8 @@ const initialState: MessageState = {
   nextFreeMessageId: 6
 }
 
-//This is just stubbed out to simply return the state in all cases. Logic to be added later.
+//This is just stubbed out to simply return the state in all cases.
+//Logic can be added later or by whoever needs it.
 export function messageReducer( state = initialState, action: MessageActionTypes): MessageState {
   switch (action.type) {
     case SEND_MESSAGE:
