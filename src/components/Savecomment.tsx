@@ -28,7 +28,10 @@ export class Comments extends React.Component<ICommentsProps>
         // Add new comment.
          this.props.saveComment( this.generateID(), commentFieldValue)
      
-                                } 
+          }
+          
+    
+          
     render ()
     {
         return (
@@ -75,13 +78,21 @@ export class Comments extends React.Component<ICommentsProps>
 ​</Segment>
   </Grid>
 
-        )
-            
-        
-    
- 
- 
-      
+        );
     
 }
 }
+
+
+// Retrieve "items" from our "global" redux state.
+const mapStateToProps = ( state: RootState ) => {
+  return {
+   newsItemList: state.news.newsItemList
+  }
+}
+
+// Connect Redux and React using our values and "view!"
+export default connect(
+  mapStateToProps,
+  { saveComment }
+)( Comments );
