@@ -3,25 +3,16 @@ import { Component, Fragment } from 'react';
 import { Form, TextArea } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { RootState } from '../store';
+import { userInformationChange } from '../store/user/actions';
 
 export interface ITextInputProps {
+  userInformationChange: typeof userInformationChange;
 }
 
-interface ITextInputState {
-  textInput: string;
-}
+export class TextInput extends Component<ITextInputProps> {
 
-export class TextInput extends Component<ITextInputProps, ITextInputState> {
-
-  constructor(props: ITextInputProps) {
-    super(props);
-    this.state = {
-      textInput: ''
-    }
-  }
-
-  private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
-    this.setState( { textInput: event.currentTarget.value} )
+ private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    this.props.userInformationChange(event.currentTarget.value)
   }
 
   public render() {
@@ -29,6 +20,7 @@ export class TextInput extends Component<ITextInputProps, ITextInputState> {
       <Fragment>
         <Form>
           <TextArea
+            rows= {5}
             placeholder='Write a bit about yourself'
             onChange={this.onUserFieldChange}
           />
@@ -45,5 +37,5 @@ const mapStateToProps = (state: RootState) => {
 
 export default connect(
   mapStateToProps,
-  { }
+  { userInformationChange }
 )(TextInput);
