@@ -40,8 +40,8 @@ const initialState: MessageState = {
     {
       messageId: 6,
       fromUserId: 1,
-      messageContent: '',
-      recipientUserIds: [],
+      messageContent: 'Could we',
+      recipientUserIds: [2],
       hasBeenSent: false
     }
 

@@ -44,7 +44,7 @@ export class MessageSendButton extends Component<IMessageSendButtonProps> {
 const mapStateToProps = (state: RootState) => {
   return {
     messageList: state.message.messageList,
-    user: state.user.loggedInUserId
+    loggedInUserId: state.user.loggedInUserId
   };
 }
 
