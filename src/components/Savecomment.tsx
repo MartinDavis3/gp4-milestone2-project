@@ -36,7 +36,7 @@ export class Comments extends React.Component<ICommentsProps> {
     let commentFieldValue: string = "";
     if (commentField !== null) commentFieldValue = commentField.value;
     // Add new comment.
-    console.log(commentFieldValue);
+    
     this.props.saveComment(2, commentFieldValue);
 
       
