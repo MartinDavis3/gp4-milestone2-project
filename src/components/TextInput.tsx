@@ -4,11 +4,13 @@ import { Form, TextArea } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { RootState } from '../store';
 import { userInformationChange } from '../store/user/actions';
-import { messageContentChange } from '../store/message/actions'
-import { Message } from '../store/message/types'
+import { messageContentChange } from '../store/message/actions';
+import { Message } from '../store/message/types';
 
 export interface ITextInputProps {
   serving: 'userInformation' | 'messageContent';
+  rows: string;
+  placeholder: string;
   userInformationChange: typeof userInformationChange;
   messageContentChange: typeof messageContentChange;
   messageList: Message[];
@@ -17,39 +19,48 @@ export interface ITextInputProps {
 
 export class TextInput extends Component<ITextInputProps> {
 
-private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
-  let { serving, userInformationChange, messageContentChange, messageList, loggedInUserId } = this.props
-  if ( loggedInUserId !== 0 ) {
-    switch (serving) {
 
-      case 'userInformation':
-        userInformationChange(event.currentTarget.value);
-      break;
+  private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    let { serving, userInformationChange, messageContentChange, messageList, loggedInUserId } = this.props;
+    if ( loggedInUserId !== 0 ) {
+      switch (serving) {
 
-      case 'messageContent':
-        let unsentMessages: Message[];
-        let targetMessage: Message;
-        unsentMessages = messageList.filter( message => !message.hasBeenSent);
-        targetMessage = unsentMessages.filter( message => message.fromUserId = loggedInUserId )[0];
-        messageContentChange(targetMessage.fromUserId, event.currentTarget.value);
-        
+        case 'userInformation':
+          userInformationChange(event.currentTarget.value);
+        break;
+
+        case 'messageContent':
+          //Every user will have an unsent message in the message list for entry of new messages
+          let unsentMessages: Message[] | undefined;
+          let targetMessage: Message | undefined;
+          unsentMessages = messageList.filter( message => !message.hasBeenSent);
+          targetMessage = unsentMessages.filter( message => message.fromUserId = loggedInUserId )[0];
+          if ( targetMessage !== undefined ) {
+            messageContentChange(targetMessage.fromUserId, event.currentTarget.value);
+          } else {
+            event.currentTarget.value = ''
+          }
+      }
+    } else {
+        event.currentTarget.value = ''
     }
   }
-}
 
   public render() {
+    let { rows, placeholder } = this.props
     return (
       <Fragment>
         <Form>
           <TextArea
-            rows= {5}
-            placeholder='Write a bit about yourself'
+            rows= {rows}
+            placeholder= {placeholder}
             onChange={this.onUserFieldChange}
           />
         </Form>
       </Fragment>
     );
   }
+
 }
 
 const mapStateToProps = (state: RootState) => {

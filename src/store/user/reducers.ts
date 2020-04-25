@@ -98,6 +98,7 @@ export function userReducer(state = initialState, action: UserActionTypes): User
     case USER_INFORMATION_CHANGE:
       let modifiedUser = state.userList.filter( user => user.userId === state.loggedInUserId )[0];
       modifiedUser.userInformation = action.userInformation;
+      console.log(modifiedUser)
       return {
         ...state,
         userList: [ ...state.userList, modifiedUser ] 
