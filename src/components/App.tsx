@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import Register from './Signup'
+import Register from './Main/Signup'
 
 
 import Main from './Main/main';
