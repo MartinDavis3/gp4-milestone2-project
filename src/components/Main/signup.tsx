@@ -42,6 +42,10 @@ export class Register extends React.Component<IRegisterProps>
  
   render ()
   {
+  let {userList} = this.props
+          console.log (userList);
+
+  
 
     let {signUp} = this.props
           console.log (signUp);
