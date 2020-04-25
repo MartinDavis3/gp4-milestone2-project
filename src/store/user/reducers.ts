@@ -4,6 +4,8 @@ import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes } from "./types"
 //More can be added if required.
 //There are default, blank images in public/img/user and public/img/background.
 const initialState: UserState = {
+  //  userPictureName:: `../../../public/img/user/${johnDoePicture.png}`,
+
   userList: [
     {
       userId: 1,
