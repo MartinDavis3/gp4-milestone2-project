@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import * as React from 'react';
 import {RootState} from '../store';
 import  {signUp } from  '../store/user/actions';
 import {User} from '../store/user/types'
-import { Grid, Form,Input, Button, Card, Divider, Header } from 'semantic-ui-react';
+import { Grid, Form, Button,  Divider, Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 export interface IRegisterProps
@@ -41,12 +42,12 @@ export class Register extends React.Component <IRegisterProps>
                                              }
 
     render ()
-
        {
 
              let {userList} = this.props
               console.log (userList);
     return 
+    // eslint-disable-next-line no-unreachable
     (
         <Grid>
 
