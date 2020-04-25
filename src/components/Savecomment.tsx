@@ -1,5 +1,6 @@
 import React from "react";
 import { RootState } from "../store";
+//import {createStore} from 'react-redux';
 import { saveComment } from "../store/news/actions";
 import { NewsItem } from "../store/news/types";
 import {
@@ -35,7 +36,7 @@ export class Comments extends React.Component<ICommentsProps> {
     let commentFieldValue: string = "";
     if (commentField !== null) commentFieldValue = commentField.value;
     // Add new comment.
-    this.props.saveComment(this.generateID(), commentFieldValue);
+    this.props.saveComment(1, commentFieldValue);
 
     event.target.reset();
   };
