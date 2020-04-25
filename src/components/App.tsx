@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Fragment } from 'react';
 
 
-import Main from './Main/main';
+// import Main from './Main/main';
 import NewsFeed from './NewsFeed/NewsFeed';
 
 export interface IAppProps {
