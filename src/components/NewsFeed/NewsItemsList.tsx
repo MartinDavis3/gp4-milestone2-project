@@ -19,9 +19,10 @@ export  class NewsItemsList extends React.Component<INewsItemsListProps> {
   }
   public render() {
     let { NewsItems } = this.props;
-    let newsTitle = NewsItems[0].newsTitle;
-    let newsContent = NewsItems[0].newsContent;
-
+    let newsTitleUser1 = NewsItems[0].newsTitle;
+    let newsContentUser1 = NewsItems[0].newsContent;
+    let newsTitleUser2 = NewsItems[1].newsTitle;
+    let newsContentUser2 = NewsItems[1].newsContent;
 
     return (
       <Segment>
@@ -36,10 +37,10 @@ export  class NewsItemsList extends React.Component<INewsItemsListProps> {
   
           <Grid.Column>
           <Header as='h1' color='blue' textAlign='center' size='huge'>
-        {newsTitle}
+        {newsTitleUser1}
                      </Header> 
              <p>
-{newsContent
+{newsContentUser1
 }             </p>
           </Grid.Column>
         </Grid.Row>
@@ -58,18 +59,15 @@ export  class NewsItemsList extends React.Component<INewsItemsListProps> {
   
           <Grid.Column>
           <Header as='h1' color='blue' textAlign='center' size='huge'>
-                             </Header> 
+                       {newsTitleUser2}      </Header> 
              <p>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vestibulum elit in tortor finibus
-             </p>
+{newsContentUser2}             </p>
           </Grid.Column>
         </Grid.Row>
         
       </Grid>
       
     </Segment>
-
-  
     );
   }
 }
