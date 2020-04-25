@@ -8,11 +8,6 @@ export interface User {
 	userInbox: number[]	
 }
 
-export interface UserCredentials {
-  username: string,
-  password: string
-}
-
 export interface UserState {
 	userList: User[],
 	loggedInUserId: number,
@@ -25,15 +20,16 @@ export const SIGN_OUT = 'SIGN_OUT';
 
 interface SignIn {
   type: typeof SIGN_IN
-  payload: number
+  userId: number
 }
 
 interface SignUp {
   type: typeof SIGN_UP
-  payload: UserCredentials
+	username: string
+	password: string
 }
 
-//No payload required for signout
+//Nothing needs to be passed for signout
 interface SignOut {
   type: typeof SIGN_OUT
 }
