@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
+import MessageSendButton  from '../components/P4message/MessageSendButton'
 
 
 import Main from './Main/main';
@@ -14,6 +15,19 @@ export default class App extends React.Component<IAppProps> {
         <h1>Hello, World!</h1>
 
      <Main/>
+
+
+
+
+
+
+
+
+
+
+
+
+     <MessageSendButton></MessageSendButton>
       </Fragment>
     );
   }
