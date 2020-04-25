@@ -13,7 +13,7 @@ export default class App extends React.Component<IAppProps> {
     return (
       <Fragment>
         <h1>Hello, World!</h1>
-        <TextInput></TextInput>
+        <TextInput serving = 'messageContent'></TextInput>
 
      <Main/>
       </Fragment>

@@ -1,4 +1,4 @@
-import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, MessageState, Message } from "./types";
+import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, MESSAGE_CONTENT_CHANGE, MessageState, Message } from "./types";
 
 const initialState: MessageState = {
   messageList: [
@@ -42,9 +42,10 @@ const initialState: MessageState = {
 }
 
 export function messageReducer( state = initialState, action: MessageActionTypes): MessageState {
-  switch (action.type) {
+    let modifiedMessage: Message 
+    switch (action.type) {
     case SEND_MESSAGE:
-      let modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
       modifiedMessage.messageContent = action.messageContent;
       return {
         ...state,
@@ -87,7 +88,15 @@ export function messageReducer( state = initialState, action: MessageActionTypes
       modifiedMessage.recipientUserIds.push(...modifiedMessage.recipientUserIds, action.recipientUserId);
       return {
         ...state,
-        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
+        messageList: [ ...state.messageList, modifiedMessage ] 
+      }
+
+    case MESSAGE_CONTENT_CHANGE:
+      modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      modifiedMessage.messageContent = action.messsageContent
+      return {
+        ...state,
+        messageList: [ ...state.messageList, modifiedMessage ] 
       }
 
     default:
