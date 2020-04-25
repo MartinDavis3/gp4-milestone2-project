@@ -9,9 +9,9 @@ const initialState: UserState = {
       userId: 1,
       username: 'user1',
       password: 'password1',
-      userPictureName: 'https://react.semantic-ui.com/images/avatar/large/matthew.png',
+      userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
-      userInformation: 'default',
+      userInformation: '',
       userInbox: []
     },
     {
