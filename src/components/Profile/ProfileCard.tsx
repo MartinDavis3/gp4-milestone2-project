@@ -33,7 +33,7 @@ export class ProfileCard extends React.Component<IProfileCardProps> {
                     <Grid>
                         <Segment>
                             <Segment>
-                                <Image src={pic} size='large' />
+                                <Image src={pic} req size='large' />
 
                             </Segment>        <Segment>
 
