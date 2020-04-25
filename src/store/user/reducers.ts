@@ -9,7 +9,7 @@ const initialState: UserState = {
       userId: 1,
       username: 'user1',
       password: 'password1',
-      userPictureName: 'default',
+      userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
       userInformation: '',
       userInbox: []
@@ -56,7 +56,7 @@ const initialState: UserState = {
       password: 'password6',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'default',
       userInbox: []
     }
   ],
