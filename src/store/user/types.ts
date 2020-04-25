@@ -5,7 +5,7 @@ export interface User {
 	userPictureName: string,
 	userBackgroundPictureName: string,
 	userInformation: string,
-	userInbox: number[]	
+	userInbox: number[],
 }
 
 export interface UserState {
