@@ -36,9 +36,17 @@ const initialState: MessageState = {
       messageContent: 'Sorry, I cannot make it today',
       recipientUserIds: [1, 2],
       hasBeenSent: true
+    },
+    {
+      messageId: 6,
+      fromUserId: 1,
+      messageContent: '',
+      recipientUserIds: [],
+      hasBeenSent: false
     }
+
   ],
-  nextFreeMessageId: 6
+  nextFreeMessageId: 7
 }
 
 export function messageReducer( state = initialState, action: MessageActionTypes): MessageState {

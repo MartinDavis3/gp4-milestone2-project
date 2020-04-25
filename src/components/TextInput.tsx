@@ -5,22 +5,35 @@ import { connect } from 'react-redux';
 import { RootState } from '../store';
 import { userInformationChange } from '../store/user/actions';
 import { messageContentChange } from '../store/message/actions'
+import { Message } from '../store/message/types'
 
 export interface ITextInputProps {
-  serving: 'userInformation' | 'messageContent'
+  serving: 'userInformation' | 'messageContent';
   userInformationChange: typeof userInformationChange;
   messageContentChange: typeof messageContentChange;
+  messageList: Message[];
+  loggedInUserId: number;
 }
 
 export class TextInput extends Component<ITextInputProps> {
 
 private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
-  switch (this.props.serving) {
-    case 'userInformation':
-      this.props.userInformationChange(event.currentTarget.value);
-    break;
-    case 'messageContent':
-      this.props.messageContentChange(1, event.currentTarget.value)
+  let { serving, userInformationChange, messageContentChange, messageList, loggedInUserId } = this.props
+  if ( loggedInUserId !== 0 ) {
+    switch (serving) {
+
+      case 'userInformation':
+        userInformationChange(event.currentTarget.value);
+      break;
+
+      case 'messageContent':
+        let unsentMessages: Message[];
+        let targetMessage: Message;
+        unsentMessages = messageList.filter( message => !message.hasBeenSent);
+        targetMessage = unsentMessages.filter( message => message.fromUserId = loggedInUserId )[0];
+        messageContentChange(targetMessage.fromUserId, event.currentTarget.value);
+        
+    }
   }
 }
 
@@ -41,6 +54,8 @@ private onUserFieldChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
 
 const mapStateToProps = (state: RootState) => {
   return {
+    messageList: state.message.messageList,
+    loggedInUserId: state.user.loggedInUserId
   };
 }
 
