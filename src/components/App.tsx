@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
+import Comments from './Savecomment';
 
 
 
@@ -14,6 +15,7 @@ export default class App extends React.Component<IAppProps> {
       <Fragment>
 
         <h1>Hello, World!</h1>
+        <Comments/>
 
       </Fragment>
     );

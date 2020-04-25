@@ -26,14 +26,18 @@ export class Comments extends React.Component<ICommentsProps>
         let commentFieldValue: string = '';
         if ( commentField !== null ) commentFieldValue = commentField.value;
         // Add new comment.
-         this.props.saveComment( this.generateID(), commentFieldValue)
-     
+         this.props.saveComment(this.generateID(), commentFieldValue)
+
+         event.target.reset ();
           }
           
     
           
     render ()
     {
+        let {newsItemList} = this.props;
+        console.log(newsItemList);
+
         return (
             <Grid>
         
@@ -46,23 +50,23 @@ export class Comments extends React.Component<ICommentsProps>
         <Icon name='like' />
         Like
       </Button>
+
       <Button icon >
         <Icon name='comment outline' />
         Comment
       </Button>
-   
-            
             </Card.Description>
            
               </Card>
               <Segment>
+
      <Comment.Group>
    <Comment>
      <Comment.Content>
     
   
-       <Form reply>
-         <Form.TextArea/>
+       <Form   onSubmit = {this.newComment} >
+         <Form.TextArea></Form.TextArea>
          <Button
            content='Add Comment'
            labelPosition='left'
