@@ -2,15 +2,15 @@ import React from 'react';
 import { RootState} from '../store';
 import {saveComment} from '../store/news/actions';
 import {NewsItem} from '../store/news/types';
-import { Grid, Form, Input, Button, Card } from 'semantic-ui-react';
+import { Button, Comment, Form, Card, Grid, Icon,Image, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 
-export interface ICommentProps{
+export interface ICommentsProps{
     saveComment: typeof saveComment
     newsItemList: NewsItem []
 }
 
-export class Comment extends React.Component<ICommentProps>
+export class Comments extends React.Component<ICommentsProps>
 {
     generateID = (): number => {
         let randomNumber: number = Math.floor( Math.random() * 1000 );
@@ -20,6 +20,68 @@ export class Comment extends React.Component<ICommentProps>
 
      newComment = (event:any) =>{
          event.preventDefault();
-     }
+         //Handle retieval of form field value
 
+         const commentField: HTMLInputElement | null = document.querySelector( '[name="comment"]' );
+        let commentFieldValue: string = '';
+        if ( commentField !== null ) commentFieldValue = commentField.value;
+        // Add new comment.
+         this.props.saveComment( this.generateID(), commentFieldValue)
+     
+                                } 
+    render ()
+    {
+        return (
+            <Grid>
+        
+       <Segment>
+         
+        <Grid.Column width={10} floated='right'>
+            <Card>
+        <Card.Description>
+              <Button icon>
+        <Icon name='like' />
+        Like
+      </Button>
+      <Button icon >
+        <Icon name='comment outline' />
+        Comment
+      </Button>
+   
+            
+            </Card.Description>
+           
+              </Card>
+              <Segment>
+     <Comment.Group>
+   <Comment>
+     <Comment.Content>
+    
+  
+       <Form reply>
+         <Form.TextArea/>
+         <Button
+           content='Add Comment'
+           labelPosition='left'
+           icon='edit'
+           primary
+         />
+       </Form>
+     </Comment.Content>
+   </Comment>
+ </Comment.Group>
+ </Segment>
+        </Grid.Column>
+​</Segment>
+  </Grid>
+
+        )
+            
+        
+    
+ 
+ 
+      
+    
+}
 }
