@@ -36,7 +36,16 @@ export class Comments extends React.Component<ICommentsProps> {
     let commentFieldValue: string = "";
     if (commentField !== null) commentFieldValue = commentField.value;
     // Add new comment.
-    this.props.saveComment(1, commentFieldValue);
+    console.log(commentFieldValue);
+    this.props.saveComment(2, commentFieldValue);
+
+      
+    /*console.log(commentField)
+            if ( commentField !== null ) commentField.value = '';
+            */
+
+
+        
 
     event.target.reset();
   };
@@ -67,7 +76,7 @@ export class Comments extends React.Component<ICommentsProps> {
                 <Comment>
                   <Comment.Content>
                     <Form onSubmit={this.newComment}>
-                      <Form.TextArea></Form.TextArea>
+                      <Form.TextArea name= 'comment' ></Form.TextArea>
                       <Button
                         content="Add Comment"
                         labelPosition="left"
