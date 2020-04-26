@@ -25,7 +25,7 @@ export class ProfileCard extends React.Component<IProfileCardProps> {
         let { profilesCard } = this.props;
         let who = profilesCard[0].username;
         let info = profilesCard[0].userInformation;
-        let pic=profilesCard[0].userPictureName;
+        let pic='https://react.semantic-ui.com/images/avatar/large/'+profilesCard[0].userPictureName;
 
         return (
             <Grid divided="vertically">

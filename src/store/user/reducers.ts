@@ -3,11 +3,13 @@ import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes, USER_INFORMATIO
 //The intitial state is populated with 6 users, with user 1 logged in.
 //There are default, blank images in public/img/user and public/img/background.
 const initialState: UserState = {
+  //  userPictureName:: `../../../public/img/user/${johnDoePicture.png}`,
+
   userList: [
     {
       userId: 1,
       username: 'user1',
-      password: 'pass1',
+      password: 'password1',
       userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
       userInformation: '',
