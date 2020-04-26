@@ -28,9 +28,15 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
     this.state = {
       displayedUser: this.props.loggedInUserId
     }
+    console.log(this.state.displayedUser)
   }
 
-  changeDisplayedUser() {
+  componentDidMount() {
+    this.setState( { displayedUser: this.props.loggedInUserId } );
+  
+  }
+
+  private changeDisplayedUser() {
     let newDisplayedUser = this.state.displayedUser;
     newDisplayedUser++;
     if ( newDisplayedUser > this.props.userList.length ) {
@@ -43,8 +49,8 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
     const { match: { params } } = this.props;
     return (
       <Fragment>
-        Page 2. User Profiles - User ParamValue: {params.id} StateValue: {this.state.displayedUser}
-        <Button as={Link} to={`/P2profile/${this.state.displayedUser}`} onclick={this.changeDisplayedUser()}/>
+        Page 2. User Profiles - User ParamValue: {params.id}
+        <Button as={Link} to={`/P2profile/${this.state.displayedUser}`} onClick={() => this.changeDisplayedUser()}/>
       </Fragment>
     );
   }
