@@ -52,3 +52,6 @@ export default connect(
   mapStateToProps,
   { sendMessage }
 )(MessageSendButton);
+
+
+//comment for github cleanup - can be removed
