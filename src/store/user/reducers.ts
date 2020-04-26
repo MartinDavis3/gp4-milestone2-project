@@ -61,8 +61,8 @@ const initialState: UserState = {
       userInbox: []
     }
   ],
-  loggedInUserId: 0,
-  isLoggedIn: false
+  loggedInUserId: 2,
+  isLoggedIn: true
 }
 
 export function userReducer(state = initialState, action: UserActionTypes): UserState {
