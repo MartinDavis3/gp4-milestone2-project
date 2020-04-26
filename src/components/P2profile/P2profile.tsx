@@ -28,20 +28,17 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
     this.state = {
       displayedUser: this.props.loggedInUserId
     }
-    console.log(this.state.displayedUser)
-  }
-
-  componentDidMount() {
-    this.setState( { displayedUser: this.props.loggedInUserId } );
-  
   }
 
   private changeDisplayedUser() {
     let newDisplayedUser = this.state.displayedUser;
+    console.log(`user before increment: ${newDisplayedUser}`)
     newDisplayedUser++;
+    console.log(`user after increment: ${newDisplayedUser}`)
     if ( newDisplayedUser > this.props.userList.length ) {
       newDisplayedUser = 1
     }
+    console.log(`user after limiter: ${newDisplayedUser}`)
     this.setState( { displayedUser: newDisplayedUser } );
   }
 

@@ -2,13 +2,17 @@ import * as React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
+import { RootState } from '../store';
+import { connect } from 'react-redux';
 
 export interface INavBarProps {
+  loggedInUserId: number
 }
 
-export default class NavBar extends React.Component<INavBarProps> {
+
+export class NavBar extends React.Component<INavBarProps> {
     public render() {
-        return (
+      return (
           <Menu>
             <Menu.Item
                 as={Link}
@@ -20,7 +24,7 @@ export default class NavBar extends React.Component<INavBarProps> {
 
             <Menu.Item
                 as={Link}
-                to={`/P2profile/P2profile`}
+                to={`/P2profile/${this.props.loggedInUserId}`}
                 name='Profile'
             >
                 Profile
@@ -50,3 +54,14 @@ export default class NavBar extends React.Component<INavBarProps> {
         );
     }
 }
+
+const mapStateToProps = (state: RootState) => {
+  return {
+    loggedInUserId: state.user.loggedInUserId
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { }
+)(NavBar);
