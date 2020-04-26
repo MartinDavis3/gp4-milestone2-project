@@ -48,7 +48,7 @@ export  class InputMessage extends React.Component<IInputMessageProps> {
 <Segment>
 <Label icon="facebook messenger" size='huge' color='blue'/>
 
-    <Label size='big' color='green' icon="facebook messenger">Imbox</Label>
+    <Label size='big' color='green' icon="facebook messenger">Inbox</Label>
 <Segment>
 
     <Grid>
