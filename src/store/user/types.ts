@@ -14,6 +14,12 @@ export interface UserProfile {
 	userInformation: string
 }
 
+export interface UserProfile {
+	userPictureName: string,
+	userBackgroundPictureName: string,
+	userInformation: string
+}
+
 export interface UserState {
 	userList: User[],
 	loggedInUserId: number,
