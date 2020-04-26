@@ -86,8 +86,10 @@ export function userReducer(state = initialState, action: UserActionTypes): User
         userBackgroundPictureName: 'default',
         userInformation: '',
         userInbox: []
-      }
+      } 
+      console.log(newUser);
       return {
+      
         ...state,
         userList: [...state.userList, newUser]
       }

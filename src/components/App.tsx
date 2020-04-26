@@ -3,6 +3,8 @@ import { Fragment } from 'react';
 import { Route, Switch } from "react-router-dom";
 import NotFound from './NotFound';
 import NavBar from './Navbar';
+
+
 import Main from './Main/main';
 import P2profile from './P2profile/P2profile';
 import P3newsfeed from './P3newsfeed/P3newsfeed';
