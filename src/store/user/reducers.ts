@@ -16,7 +16,7 @@ const initialState: UserState = {
     {
       userId: 2,
       username: 'user2',
-      password: 'password2',
+      password: 'pass2',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: '',
@@ -25,7 +25,7 @@ const initialState: UserState = {
     {
       userId: 3,
       username: 'user3',
-      password: 'password3',
+      password: 'pass3',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: '',
@@ -34,7 +34,7 @@ const initialState: UserState = {
     {
       userId: 4,
       username: 'user4',
-      password: 'password4',
+      password: 'pass3',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: '',
@@ -43,7 +43,7 @@ const initialState: UserState = {
     {
       userId: 5,
       username: 'user5',
-      password: 'password5',
+      password: 'pass5',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: '',

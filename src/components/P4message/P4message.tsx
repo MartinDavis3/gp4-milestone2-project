@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Fragment } from 'react';
 import MessageSendButton  from './MessageSendButton';
 import TextInput  from '../TextInput';
+import InputMessage from './InputMessage';
 
 export interface IP4messageProps {
 }
@@ -13,6 +14,7 @@ export default class P4message extends React.Component<IP4messageProps> {
         Page 4. Direct Messaging
         <TextInput serving = 'messageContent' rows='2' placeholder = 'Enter your message...' ></TextInput>
         <MessageSendButton></MessageSendButton>
+        <InputMessage/>
       </Fragment>
     );
   }
