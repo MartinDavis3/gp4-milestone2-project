@@ -105,3 +105,6 @@ const mapStateToProps = (state: RootState) => {
 
 // Connect Redux and React using our values and "view!"
 export default connect(mapStateToProps, { saveComment })(Comments);
+
+
+//Add comment to try and allow "merging" of branch on github - can be removed after.
