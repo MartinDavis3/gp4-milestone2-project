@@ -38,7 +38,7 @@ export function newsReducer( state = initialState, action: NewsActionType ): New
       modNewsItem.newsLikesCount = modNewsItem.newsLikesCount + 1;
       return {
         ...state,
-        newsItemList: [ ...state.newsItemList.filter(newsItem => newsItem.newsId !== action.newsId), modNewsItem]
+        newsItemList: [ ...state.newsItemList, modNewsItem]
       }
     
     case SAVE_COMMENT:
@@ -46,7 +46,7 @@ export function newsReducer( state = initialState, action: NewsActionType ): New
       modNewsItem.newsItemComment = action.comment;
       return {
         ...state,
-        newsItemList: [...state.newsItemList.filter(newsItem => newsItem.newsId !== action.newsId), modNewsItem]
+        newsItemList: [...state.newsItemList, modNewsItem]
       }
 
     default:

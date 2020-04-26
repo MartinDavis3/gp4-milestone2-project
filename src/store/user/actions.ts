@@ -1,4 +1,4 @@
-import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT } from "./types"
+import { UserActionTypes, SIGN_IN, SIGN_UP, SIGN_OUT, USER_INFORMATION_CHANGE } from "./types"
 
 export function signIn( userId: number ): UserActionTypes {
   return {
@@ -18,5 +18,12 @@ export function signUp( username: string, password: string ): UserActionTypes {
 export function signOut(): UserActionTypes {
   return {
     type: SIGN_OUT
+  }
+}
+
+export function userInformationChange( userInformation: string ): UserActionTypes {
+  return {
+    type: USER_INFORMATION_CHANGE,
+    userInformation: userInformation
   }
 }
