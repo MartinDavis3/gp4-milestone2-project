@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { RootState } from '../store';
 import { connect } from 'react-redux';
+import { signOut } from '../store/user/actions';
 
 export interface INavBarProps {
   loggedInUserId: number
+  signOut: typeof signOut
 }
 
-
 export class NavBar extends React.Component<INavBarProps> {
+
     public render() {
       return (
           <Menu>
@@ -46,8 +48,9 @@ export class NavBar extends React.Component<INavBarProps> {
             >
                 Messaging
             </Menu.Item>
+
             <React.Fragment>
-              <Button content='Logout'/>
+              <Button content='Sign-Out' onClick={() => this.props.signOut()}/>
             </React.Fragment>
 
           </Menu>
@@ -63,5 +66,5 @@ const mapStateToProps = (state: RootState) => {
 
 export default connect(
   mapStateToProps,
-  { }
+  { signOut }
 )(NavBar);

@@ -89,6 +89,7 @@ export function userReducer(state = initialState, action: UserActionTypes): User
       }
 
     case SIGN_OUT:
+      console.log(SIGN_OUT)
       return {
         ...state,
         loggedInUserId: 0,

@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { Button } from 'semantic-ui-react';
-import { User }  from '../../store/user/types'
+import { User }  from '../../store/user/types';
 import { Link } from 'react-router-dom';
 
 interface RouteParams {
@@ -31,23 +31,31 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
   }
 
   private changeDisplayedUser() {
-    let newDisplayedUser = this.state.displayedUser;
-    console.log(`user before increment: ${newDisplayedUser}`)
-    newDisplayedUser++;
-    console.log(`user after increment: ${newDisplayedUser}`)
-    if ( newDisplayedUser > this.props.userList.length ) {
-      newDisplayedUser = 1
+    if ( this.props.loggedInUserId !== 0 ) {
+      let newDisplayedUser = this.state.displayedUser;
+      console.log(`user before increment: ${newDisplayedUser}`)
+      newDisplayedUser++;
+      console.log(`user after increment: ${newDisplayedUser}`)
+      if ( newDisplayedUser > this.props.userList.length ) {
+        newDisplayedUser = 1
+      }
+      console.log(`user after limiter: ${newDisplayedUser}`)
+      this.setState( { displayedUser: newDisplayedUser } );
+    } else {
+      this.setState( { displayedUser: 0 } );
     }
-    console.log(`user after limiter: ${newDisplayedUser}`)
-    this.setState( { displayedUser: newDisplayedUser } );
   }
 
   public render() {
     const { match: { params } } = this.props;
     return (
       <Fragment>
-        Page 2. User Profiles - User ParamValue: {params.id}
-        <Button as={Link} to={`/P2profile/${this.state.displayedUser}`} onClick={() => this.changeDisplayedUser()}/>
+        Page 2. User Profiles - User {params.id}
+        <Button content='Display Next User'
+          as={Link} 
+          to={`/P2profile/${this.state.displayedUser}`} 
+          onClick={() => this.changeDisplayedUser()}
+        />
       </Fragment>
     );
   }
