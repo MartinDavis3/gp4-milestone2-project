@@ -36,7 +36,7 @@ export class TextInput extends Component<ITextInputProps> {
           unsentMessages = messageList.filter( message => !message.hasBeenSent);
           targetMessage = unsentMessages.filter( message => message.fromUserId = loggedInUserId )[0];
           if ( targetMessage !== undefined ) {
-            messageContentChange(targetMessage.fromUserId, event.currentTarget.value);
+            messageContentChange(targetMessage.messageId, event.currentTarget.value);
           } else {
             event.currentTarget.value = ''
           }

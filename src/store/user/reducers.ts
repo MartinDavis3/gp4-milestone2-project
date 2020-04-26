@@ -7,7 +7,7 @@ const initialState: UserState = {
     {
       userId: 1,
       username: 'user1',
-      password: 'password1',
+      password: 'pass1',
       userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
       userInformation: '',
@@ -59,14 +59,16 @@ const initialState: UserState = {
       userInbox: []
     }
   ],
-  loggedInUserId: 1,
-  isLoggedIn: true
+  loggedInUserId: 0,
+  isLoggedIn: false
 }
 
 export function userReducer(state = initialState, action: UserActionTypes): UserState {
   switch (action.type) {
 
     case SIGN_IN:
+      console.log('sign-in');
+      console.log(action.userId);
       return {
         ...state,
         loggedInUserId: action.userId, isLoggedIn: true
