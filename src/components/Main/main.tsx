@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Login from './login';
 import Mainheader from './mainheader';
-import Signup from './signup';
+// import Signup from './signup';
+import Register from './signup'
 
 export interface IMainProps {
 }
@@ -19,8 +20,9 @@ export default class Main extends React.Component<IMainProps> {
 <br/>
 <br/>
 
+<Register />
 
-<Signup/>
+{/* <Signup/> */}
 <br/>
 <br/>
 

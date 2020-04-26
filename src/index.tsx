@@ -13,8 +13,9 @@ export const history = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store()}>
-    <Router history={history}></Router>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

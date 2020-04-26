@@ -1,10 +1,9 @@
-import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE } from "./types";
+import { MessageActionTypes, SEND_MESSAGE, REMOVE_MESSAGE_FROM_INBOX, ADD_NEW_MESSAGE, ADD_RECIPIENT_TO_MESSAGE, MESSAGE_CONTENT_CHANGE } from "./types";
 
-export function sendMessage( messageId: number, messageContent: string ): MessageActionTypes {
+export function sendMessage( messageId: number ): MessageActionTypes {
     return {
         type: SEND_MESSAGE, 
         messageId: messageId,
-        messageContent: messageContent
     }
 }
 
@@ -29,5 +28,13 @@ export function addRecipientToMessage( messageId: number, recipientUserId: numbe
         type: ADD_RECIPIENT_TO_MESSAGE,
         messageId: messageId,
         recipientUserId: recipientUserId
+    }
+}
+
+export function messageContentChange( messageId: number, messageContent: string): MessageActionTypes {
+    return {
+        type: MESSAGE_CONTENT_CHANGE,
+        messageId: messageId,
+        messsageContent: messageContent
     }
 }

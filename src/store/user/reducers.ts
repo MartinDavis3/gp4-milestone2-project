@@ -1,9 +1,10 @@
-import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes } from "./types"
+import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes, USER_INFORMATION_CHANGE } from "./types"
 
-//The intitial state is populated with just one user, logged in, for the sake of brevity.
-//More can be added if required.
+//The intitial state is populated with 6 users, with user 1 logged in.
 //There are default, blank images in public/img/user and public/img/background.
 const initialState: UserState = {
+  //  userPictureName:: `../../../public/img/user/${johnDoePicture.png}`,
+
   userList: [
     {
       userId: 1,
@@ -60,7 +61,7 @@ const initialState: UserState = {
       userInbox: []
     }
   ],
-  loggedInUserId: 1,
+  loggedInUserId: 2,
   isLoggedIn: true
 }
 
@@ -68,6 +69,8 @@ export function userReducer(state = initialState, action: UserActionTypes): User
   switch (action.type) {
 
     case SIGN_IN:
+      console.log('sign-in');
+      console.log(action.userId);
       return {
         ...state,
         loggedInUserId: action.userId, isLoggedIn: true
@@ -83,19 +86,31 @@ export function userReducer(state = initialState, action: UserActionTypes): User
         userBackgroundPictureName: 'default',
         userInformation: '',
         userInbox: []
-      }
+      } 
+      console.log(newUser);
       return {
+      
         ...state,
         userList: [...state.userList, newUser]
       }
 
     case SIGN_OUT:
+      console.log(SIGN_OUT)
       return {
         ...state,
         loggedInUserId: 0,
         isLoggedIn: false
       }
 
+    case USER_INFORMATION_CHANGE:
+      let modifiedUser = state.userList.filter( user => user.userId === state.loggedInUserId )[0];
+      modifiedUser.userInformation = action.userInformation;
+      console.log(modifiedUser)
+      return {
+        ...state,
+        userList: [ ...state.userList, modifiedUser ] 
+      }
+      
     default:
       return state;
   }

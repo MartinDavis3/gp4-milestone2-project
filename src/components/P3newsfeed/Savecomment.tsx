@@ -1,8 +1,8 @@
 import React from "react";
-import { RootState } from "../store";
+import { RootState } from "../../store";
 //import {createStore} from 'react-redux';
-import { saveComment } from "../store/news/actions";
-import { NewsItem } from "../store/news/types";
+import { saveComment } from '../../store/news/actions';
+import { NewsItem } from "../../store/news/types";
 import {
   Button,
   Comment,
