@@ -35,13 +35,10 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
   private changeDisplayedUser() {
     if ( this.props.loggedInUserId !== 0 ) {
       let newDisplayedUser = this.state.displayedUser;
-      console.log(`user before increment: ${newDisplayedUser}`)
       newDisplayedUser++;
-      console.log(`user after increment: ${newDisplayedUser}`)
       if ( newDisplayedUser > this.props.userList.length ) {
         newDisplayedUser = 1
       }
-      console.log(`user after limiter: ${newDisplayedUser}`)
       this.setState( { displayedUser: newDisplayedUser } );
     } else {
       this.setState( { displayedUser: 0 } );
