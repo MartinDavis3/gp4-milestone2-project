@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Segment, Grid, Label } from 'semantic-ui-react';
+import { Segment, Grid, Label, Button,Image } from 'semantic-ui-react';
 import { Message } from '../../store/message/types';
 import { RootState } from '../../store';
 import { connect } from 'react-redux';
 import { signOut} from '../../store/user/actions';
 import { User } from '../../store/user/types';
+import { Link } from 'react-router-dom';
 
-interface Routeparms{
-    id:string;
-}
+
+
 export interface IInputMessageProps {
     Message:Message[];
     usersname: User[];
@@ -17,20 +17,37 @@ export interface IInputMessageProps {
 
 }
 
+interface IInputMessageState {
+  displayedUser: number
+}
 
 
-export  class InputMessage extends React.Component<IInputMessageProps> {
+export  class InputMessage extends React.Component<IInputMessageProps,IInputMessageState> {
     constructor(props: IInputMessageProps) {
         super(props);
-        this.state = { messageId: "",
-          fromUserId: "",
-          messageContent: "",
-          recipientUserIds:[],
-          username:"",password:""
+        this.state = {
+          displayedUser: this.props.loggedInUserId
+        }
       }
-    }
+      private changeDisplayedUser() {
+        if ( this.props.loggedInUserId !== 0 ) {
+          let newDisplayedUser = this.state.displayedUser;
+          console.log(`user before increment: ${newDisplayedUser}`)
+          newDisplayedUser++;
+          console.log(`user after increment: ${newDisplayedUser}`)
+          if ( newDisplayedUser > this.props.usersname.length ) {
+            newDisplayedUser = 1
+          }
+          console.log(`user after limiter: ${newDisplayedUser}`)
+          this.setState( { displayedUser: newDisplayedUser } );
+        } else {
+          this.setState( { displayedUser: 0 } );
+        }
+      }
+
 
   public render() {
+
     let { Message,usersname,loggedInUserId} = this.props;
     let username = usersname[0].username;
     let username1 = usersname[1].username;
@@ -38,9 +55,7 @@ export  class InputMessage extends React.Component<IInputMessageProps> {
     let username3 = usersname[3].username;
     let username4 = usersname[3].username;
     let username5 = usersname[3].username;
-
-
-
+    
     let messageContent = Message[0].messageContent;
     let messageContent2 = Message[1].messageContent;
     let messageContent3 = Message[2].messageContent;
@@ -48,11 +63,25 @@ export  class InputMessage extends React.Component<IInputMessageProps> {
     let messageContent5 = Message[4].messageContent;
     // let messageContent6 = Message[5].messageContent;
     // let messageContent7 = Message[6].messageContent;
+    
+    if (loggedInUserId === 0  ) {
+
+        return(
+            
+<Button content='Please logIn to youe account'
+          as={Link} 
+          to={`/Home/${this.state.displayedUser}`} 
+          onClick={() => this.changeDisplayedUser()}
+        />
+        );
+        
+}
 
     if (loggedInUserId === 1  ) {
 
         return(
 <Segment>
+
 <h2>{username}</h2>
 
 <Label icon="facebook messenger" size='huge' color='blue'/>
@@ -62,7 +91,7 @@ export  class InputMessage extends React.Component<IInputMessageProps> {
     <Grid>
 <Grid.Row>
 <Grid.Column width={2}>
-    <Label color='blue'>me :</Label>
+    <Label color='blue'><Image></Image> me :</Label>
 </Grid.Column>
 
 <Grid.Column width={7}>

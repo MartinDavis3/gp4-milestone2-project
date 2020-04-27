@@ -3,6 +3,8 @@ import { UserState, SIGN_IN, SIGN_UP, SIGN_OUT, UserActionTypes, USER_INFORMATIO
 //The intitial state is populated with 6 users, with user 1 logged in.
 //There are default, blank images in public/img/user and public/img/background.
 const initialState: UserState = {
+  //  userPictureName:: `../../../public/img/user/${johnDoePicture.png}`,
+
   userList: [
     {
       userId: 1,
@@ -10,57 +12,57 @@ const initialState: UserState = {
       password: 'pass1',
       userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'I am a techer',
       userInbox: []
     },
     {
       userId: 2,
       username: 'user2',
       password: 'pass2',
-      userPictureName: 'default',
+      userPictureName: 'steve.jpg',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: ' iam  a pilot ',
       userInbox: []
     },
     {
       userId: 3,
       username: 'user3',
       password: 'pass3',
-      userPictureName: 'default',
+      userPictureName: 'molly.png',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'i am electrical engineering ',
       userInbox: []
     },
     {
       userId: 4,
       username: 'user4',
-      password: 'pass3',
-      userPictureName: 'default',
+      password: 'pass4',
+      userPictureName: 'jenny.jpg',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: ' i am police officer',
       userInbox: []
     },
     {
       userId: 5,
       username: 'user5',
       password: 'pass5',
-      userPictureName: 'default',
+      userPictureName: 'daniel.jpg',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'iam a singer ',
       userInbox: []
     },
     {
       userId: 6,
       username: 'user6',
-      password: 'password6',
+      password: 'pass6',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
       userInformation: 'default',
       userInbox: []
     }
   ],
-  loggedInUserId: 0,
-  isLoggedIn: false
+  loggedInUserId: 2,
+  isLoggedIn: true
 }
 
 export function userReducer(state = initialState, action: UserActionTypes): UserState {
