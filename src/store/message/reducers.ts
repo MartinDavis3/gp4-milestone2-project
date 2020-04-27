@@ -93,9 +93,7 @@ export function messageReducer( state = initialState, action: MessageActionTypes
 
     case ADD_RECIPIENT_TO_MESSAGE:
       modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
-      console.log('modifiedMessage after push: ',modifiedMessage)
       modifiedMessage.recipientUserIds.push(action.recipientUserId);
-      console.log('modifiedMessage after push: ',modifiedMessage)
       return {
         ...state,
         messageList: [ ...state.messageList, modifiedMessage ] 
