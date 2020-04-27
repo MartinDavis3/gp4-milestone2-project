@@ -11,9 +11,6 @@ export default class App extends React.Component<IAppProps> {
     return (
         <React.Fragment>
             <Button " ... " icon={default.jpg}/>
-            <Button " ... " icon={lake.jpg}/>
-            <Button " ... " icon={mountain.jpg}/>
-            <Button " ... " icon={valley.jpg}/>
         </React.Fragment>
     );
 }

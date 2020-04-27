@@ -25,11 +25,20 @@ export interface UserState {
 	loggedInUserId: number,
 	isLoggedIn: boolean
 }
+export interface backgroundPicture {
+    picture: string, 
+    userId: number,
+}
+
+export interface backgroundPictureState {
+    backgroundPictureList: backgroundPicture[]
+}
 
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_OUT = 'SIGN_OUT';
 export const USER_INFORMATION_CHANGE = 'USER_INFORMATION_CHANGE';
+export const CHANGE_BACKGROUND_IMG = "CHANGE_BACKGROUND_IMG"
 
 interface SignIn {
   type: typeof SIGN_IN
@@ -52,4 +61,11 @@ interface UserInformationChange {
 	userInformation: string
 }
 
-export type UserActionTypes = SignIn | SignUp | SignOut | UserInformationChange;
+interface ChangeBackgroundImg {
+    type: typeof CHANGE_BACKGROUND_IMG,
+    picture: string,
+    userid: number
+}
+
+export type UserActionTypes = SignIn | SignUp | SignOut | UserInformationChange | ChangeBackgroundImg;
+

@@ -3,6 +3,10 @@ export interface backgroundPicture {
     userId: number,
 }
 
+export interface backgroundPictureState {
+    backgroundPictureList: backgroundPicture[]
+}
+
 export const CHANGE_BACKGROUND_IMG = "CHANGE_BACKGROUND_IMG"
 
 interface ChangeBackgroundImg {
