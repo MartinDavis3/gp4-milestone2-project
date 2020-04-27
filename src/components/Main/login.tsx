@@ -39,17 +39,12 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
   }
 
   onClickSubmitButton() {
-    console.log('In submit routine');
     const { userList, loggedInUserId, signIn } = this.props;
     const { currUser, currPass } = this.state;
     if ( loggedInUserId === 0 ) {
-      console.log('In usercheck block');
       let matchedUser = userList.filter( user => user.username === currUser)[0];
-      console.log(matchedUser);
       if ( matchedUser !== undefined ) {
-        console.log('In passcheck block');
         if ( matchedUser.password === currPass ) {
-          console.log(matchedUser.userId);
           signIn(matchedUser.userId)
         }
       }

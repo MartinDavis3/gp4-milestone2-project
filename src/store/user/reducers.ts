@@ -9,55 +9,55 @@ const initialState: UserState = {
     {
       userId: 1,
       username: 'user1',
-      password: 'password1',
+      password: 'pass1',
       userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'I am a full-stack software developer',
       userInbox: []
     },
     {
       userId: 2,
       username: 'user2',
-      password: 'password2',
+      password: 'pass2',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'I like mountaineering',
       userInbox: []
     },
     {
       userId: 3,
       username: 'user3',
-      password: 'password3',
+      password: 'pass3',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'My favourite colour is green',
       userInbox: []
     },
     {
       userId: 4,
       username: 'user4',
-      password: 'password4',
+      password: 'pass4',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'I like reading',
       userInbox: []
     },
     {
       userId: 5,
       username: 'user5',
-      password: 'password5',
+      password: 'pass5',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: '',
+      userInformation: 'I like to dance',
       userInbox: []
     },
     {
       userId: 6,
       username: 'user6',
-      password: 'password6',
+      password: 'pass6',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: 'default',
+      userInformation: 'My favourite meal is haggis, tatties and neaps',
       userInbox: []
     }
   ],
@@ -105,7 +105,6 @@ export function userReducer(state = initialState, action: UserActionTypes): User
     case USER_INFORMATION_CHANGE:
       let modifiedUser = state.userList.filter( user => user.userId === state.loggedInUserId )[0];
       modifiedUser.userInformation = action.userInformation;
-      console.log(modifiedUser)
       return {
         ...state,
         userList: [ ...state.userList, modifiedUser ] 
