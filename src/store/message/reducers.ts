@@ -40,9 +40,9 @@ const initialState: MessageState = {
     {
       messageId: 6,
       fromUserId: 1,
-      messageContent: 'Could we',
+      messageContent: 'Could we meet later',
       recipientUserIds: [2],
-      hasBeenSent: false
+      hasBeenSent: true
     }
 
   ],
@@ -93,7 +93,7 @@ export function messageReducer( state = initialState, action: MessageActionTypes
 
     case ADD_RECIPIENT_TO_MESSAGE:
       modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
-      modifiedMessage.recipientUserIds.push(...modifiedMessage.recipientUserIds, action.recipientUserId);
+      modifiedMessage.recipientUserIds.push(action.recipientUserId);
       return {
         ...state,
         messageList: [ ...state.messageList, modifiedMessage ] 
