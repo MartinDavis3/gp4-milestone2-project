@@ -31,13 +31,13 @@ export class Like extends React.Component<ILikeProps>
 }
 
 const mapStateToProps = ( state: RootState ) => {
-  return {
-    newsItemList: state.news.newsItemList
+    return {
+      newsItemList: state.news.newsItemList
+    }
   }
-}
-
-// Connect Redux and React using our values and "view!"
-export default connect(
-  mapStateToProps,
-  { incrementLikeCounter }
-)( Like );
+  
+  // Connect Redux and React using our values and "view!"
+  export default connect(
+    mapStateToProps,
+    { incrementLikeCounter }
+  )( Like );
