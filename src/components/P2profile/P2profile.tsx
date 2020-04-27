@@ -4,11 +4,10 @@ import { Component } from 'react';
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
-import { Button } from 'semantic-ui-react';
+import { Button,  } from 'semantic-ui-react';
 import { User }  from '../../store/user/types';
 import { Link } from 'react-router-dom';
 import TextInput  from '../TextInput';
-import ProfileCard from './ProfileCard';
 
 interface RouteParams {
   id: string;
@@ -49,7 +48,7 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
   }
 
   public render() {
-    const { match: { params } } = this.props;
+    let { match: { params } } = this.props;
     return (
       <Fragment>
         Page 2. User Profiles - User {params.id}
@@ -58,9 +57,10 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
           to={`/P2profile/${this.state.displayedUser}`} 
           onClick={() => this.changeDisplayedUser()}
         />
+        
         <TextInput serving = 'userInformation' rows='5' placeholder = 'Tell us about yourself...' ></TextInput>
-        <ProfileCard/>
-      </Fragment>
+
+          </Fragment>
     );
   }
 }

@@ -7,6 +7,7 @@ import Main from './Main/main';
 import P2profile from './P2profile/P2profile';
 import P3newsfeed from './P3newsfeed/P3newsfeed';
 import P4message from './P4message/P4message';
+import ProfileCard from './P2profile/ProfileCard';
 
 
 export interface IAppProps {
@@ -20,10 +21,14 @@ export default class App extends React.Component<IAppProps> {
         <Switch>
           <Route exact path='/' component={Main} />
           <Route path='/P2profile/:id' component={P2profile} />
+          <Route path='/ProfileCard/:id' component={ProfileCard} />
+
           <Route path='/P3newsfeed' component={P3newsfeed} />
           <Route path='/P4message' component={P4message} />
+          
           <Route component={NotFound} />
-        </Switch>    
+        </Switch>   
+         
       </Fragment>
     );
   }

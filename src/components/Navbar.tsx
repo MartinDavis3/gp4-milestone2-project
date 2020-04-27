@@ -31,6 +31,13 @@ export class NavBar extends React.Component<INavBarProps> {
             >
                 Profile
             </Menu.Item>
+            <Menu.Item
+                as={Link}
+                to={`/ProfileCard/${this.props.loggedInUserId}`}
+                name='ProfileCard'
+            >
+                Profilecard
+            </Menu.Item>
 
 
             <Menu.Item
@@ -57,6 +64,7 @@ export class NavBar extends React.Component<INavBarProps> {
         );
     }
 }
+
 
 const mapStateToProps = (state: RootState) => {
   return {
