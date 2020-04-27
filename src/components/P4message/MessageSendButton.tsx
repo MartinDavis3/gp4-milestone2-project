@@ -16,8 +16,8 @@ export class MessageSendButton extends Component<IMessageSendButtonProps> {
 
   onClickSendMessage() {
     const { messageList, sendMessage, loggedInUserId  } = this.props
-    let unsentMessages: Message[]
-    let currentMessage: Message
+    let unsentMessages: Message[] | undefined
+    let currentMessage: Message | undefined
     unsentMessages = messageList.filter(individualMessage => (!individualMessage.hasBeenSent));
     currentMessage = unsentMessages.filter(individualMessage => (individualMessage.fromUserId === loggedInUserId))[0];
     if ( currentMessage !== undefined ) {
@@ -52,3 +52,6 @@ export default connect(
   mapStateToProps,
   { sendMessage }
 )(MessageSendButton);
+
+
+//comment for github cleanup - can be removed

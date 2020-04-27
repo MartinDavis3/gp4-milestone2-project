@@ -12,7 +12,7 @@ const initialState: UserState = {
       password: 'pass1',
       userPictureName: 'matthew.png',
       userBackgroundPictureName: 'default',
-      userInformation: 'I am a techer',
+      userInformation: 'I am a full-stack software developer',
       userInbox: []
     },
     {
@@ -46,9 +46,9 @@ const initialState: UserState = {
       userId: 5,
       username: 'user5',
       password: 'pass5',
-      userPictureName: 'daniel.jpg',
+      userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: 'iam a singer ',
+      userInformation: 'I like to dance',
       userInbox: []
     },
     {
@@ -57,7 +57,7 @@ const initialState: UserState = {
       password: 'pass6',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: 'default',
+      userInformation: 'My favourite meal is haggis, tatties and neaps',
       userInbox: []
     }
   ],
@@ -86,8 +86,10 @@ export function userReducer(state = initialState, action: UserActionTypes): User
         userBackgroundPictureName: 'default',
         userInformation: '',
         userInbox: []
-      }
+      } 
+      console.log(newUser);
       return {
+      
         ...state,
         userList: [...state.userList, newUser]
       }
@@ -103,7 +105,6 @@ export function userReducer(state = initialState, action: UserActionTypes): User
     case USER_INFORMATION_CHANGE:
       let modifiedUser = state.userList.filter( user => user.userId === state.loggedInUserId )[0];
       modifiedUser.userInformation = action.userInformation;
-      console.log(modifiedUser)
       return {
         ...state,
         userList: [ ...state.userList, modifiedUser ] 
