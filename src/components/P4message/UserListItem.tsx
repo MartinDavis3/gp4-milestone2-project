@@ -16,7 +16,17 @@ export interface IUserListItemProps {
   itemUserId: number
 }
 
-export class UserListItem extends Component<IUserListItemProps> {
+interface IUserListItemState {
+  backColour: "red" | "orange" | "yellow" | "olive" | "green" | "teal" | "blue" | "violet" | "purple" | "pink" | "brown" | "grey" | "black" | undefined;
+}
+
+export class UserListItem extends Component<IUserListItemProps, IUserListItemState> {
+  constructor(props: IUserListItemProps) {
+    super(props);
+    this.state = {
+      backColour: "grey"
+    }
+  }
 
   addRecipient() {
     const { itemUserId, messageList, loggedInUserId, addNewMessage, addRecipientToMessage } = this.props;
@@ -31,6 +41,7 @@ export class UserListItem extends Component<IUserListItemProps> {
       //Message already open, so just add recipient.
       addRecipientToMessage( currentMessage.messageId, itemUserId);
     }
+    this.setState( { backColour: "red" } )
   }
 
   public render() {
@@ -39,7 +50,7 @@ export class UserListItem extends Component<IUserListItemProps> {
     return (
       <Fragment>
           <Grid.Row>
-            <Button key={itemUserId} content={itemUsername} onClick={() => this.addRecipient()} />        
+            <Button color={this.state.backColour} key={itemUserId} content={itemUsername} onClick={() => this.addRecipient()} />        
           </Grid.Row>
       </Fragment>
     );
