@@ -58,7 +58,7 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
           to={`/P2profile/${this.state.displayedUser}`} 
           onClick={() => this.changeDisplayedUser()}
         />
-        <TextInput serving = 'userInformation' rows='5' placeholder = 'Tell us about yourself...' ></TextInput>
+        <TextInput serving = 'userInformation' rows='5' displayingUserId={params.id} ></TextInput>
         <ProfileCard/>
       </Fragment>
     );
