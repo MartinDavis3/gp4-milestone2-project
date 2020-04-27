@@ -8,6 +8,7 @@ import { Button,  } from 'semantic-ui-react';
 import { User }  from '../../store/user/types';
 import { Link } from 'react-router-dom';
 import TextInput  from '../TextInput';
+import ProfileCard from './ProfileCard';
 
 interface RouteParams {
   id: string;
@@ -59,7 +60,7 @@ export class P2profile extends Component<IP2profileProps, IP2profileState> {
         />
         
         <TextInput serving = 'userInformation' rows='5' placeholder = 'Tell us about yourself...' ></TextInput>
-
+<ProfileCard/>
           </Fragment>
     );
   }

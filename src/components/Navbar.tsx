@@ -31,13 +31,13 @@ export class NavBar extends React.Component<INavBarProps> {
             >
                 Profile
             </Menu.Item>
-            <Menu.Item
+            {/* <Menu.Item
                 as={Link}
                 to={`/ProfileCard/${this.props.loggedInUserId}`}
                 name='ProfileCard'
             >
                 Profilecard
-            </Menu.Item>
+            </Menu.Item> */}
 
 
             <Menu.Item

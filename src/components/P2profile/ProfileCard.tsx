@@ -3,19 +3,15 @@ import { Segment, Grid, Label, Image, Button } from 'semantic-ui-react';
 import { User } from '../../store/user/types';
 import { RootState } from '../../store';
 import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
 
-interface RouteParams {
-    id: string;
-  }
 
-export interface IProfileCardProps extends RouteComponentProps<RouteParams> {
+
+export interface IProfileCardProps  {
     profilesCard: User[];
     loggedInUserId: number;
 }
-
 
 interface IProfileCardState {
     displayedUser: number
@@ -45,7 +41,6 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
       }
   
     public render() {
-        let { match: { params } } = this.props;
 
         let { profilesCard ,loggedInUserId} = this.props;
         let who = profilesCard[0].username;
@@ -83,7 +78,6 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
                 <Segment>
                     <Grid>
                         <Segment>
-                        Page 2. User profilesCard - User {params.id}     
                             <Segment>
                                 <Image src={pic}
                                     // req
@@ -136,7 +130,6 @@ else if (loggedInUserId ===2){
         <Segment>
             <Grid>
                 <Segment>
-                Page 2. User profilesCard - User {params.id}     
 
                     <Segment>
                         <Image src={pic2}
