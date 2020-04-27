@@ -13,7 +13,6 @@ export default class P4message extends React.Component<IP4messageProps> {
       <Fragment>
         Page 4. Direct Messaging
         <UserList/>
-        <TextInput serving = 'messageContent' rows='2' placeholder = 'Enter your message...' ></TextInput>
         <TextInput serving = 'messageContent' rows='2' displayingUserId='0' ></TextInput>
         <MessageSendButton></MessageSendButton>
       </Fragment>
