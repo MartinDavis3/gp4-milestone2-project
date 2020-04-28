@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Icon, Input, Button } from "semantic-ui-react";
+import { Grid, Input, Button, Header, Form } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { signIn } from '../../store/user/actions';
@@ -46,6 +46,7 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
       if ( matchedUser !== undefined ) {
         if ( matchedUser.password === currPass ) {
           signIn(matchedUser.userId)
+          alert("Sign in successfully")
         }
       }
     }
@@ -55,25 +56,30 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
     return (
       <React.Fragment>
         <Grid columns="equal">
-          <Grid.Column floated="right" width={3}>
-            <Icon circular inverted color="blue" name="users" size="large" />
-          </Grid.Column>
-          <Grid.Column width={3}>
+          <Grid.Row>
+
+          </Grid.Row>
+          <Grid.Column width={2}></Grid.Column>
+  <Grid.Column width={9}>
+
+  <Header as='h3' color='blue' textAlign='left'>
+Please enter you user name and password to login</Header>
+<Form size='large'>
             <Input fluid icon="user" iconPosition="left" placeholder="Username"
               onChange={this.onUserFieldChange} />
-          </Grid.Column>
-          <Grid.Column width={3}>
             <Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password"
               onChange={this.onPassFieldChange}/>
-          </Grid.Column>
-          <Grid.Column width={3}>
             <Button color="facebook" fluid size="large"
              onClick = {() => this.onClickSubmitButton()}
             >
+              
               Login
             </Button>
-          </Grid.Column>
-          <Grid.Column width={1}></Grid.Column>
+            </Form>
+
+            </Grid.Column>
+            <Grid.Column width={1}></Grid.Column>
+
         </Grid>
       </React.Fragment>
     );

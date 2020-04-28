@@ -70,7 +70,7 @@ export  class InputMessage extends React.Component<IInputMessageProps,IInputMess
             
 <Button content='Please logIn to youe account'
           as={Link} 
-          to={`/Home/${this.state.displayedUser}`} 
+          to={`/`} 
           onClick={() => this.changeDisplayedUser()}
         />
         );

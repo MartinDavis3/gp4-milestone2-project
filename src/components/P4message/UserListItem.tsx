@@ -61,7 +61,7 @@ const mapStateToProps = (state: RootState) => {
   return {
     messageList: state.message.messageList,
     userList: state.user.userList,
-    loggedInUserId: state.user.loggedInUserId
+    loggedInUserId: state.user.loggedInUserId,
   };
 }
 
