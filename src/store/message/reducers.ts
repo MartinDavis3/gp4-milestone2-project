@@ -57,11 +57,12 @@ export function messageReducer( state = initialState, action: MessageActionTypes
       modifiedMessage.hasBeenSent = true;
       return {
         ...state,
-        messageList: [ ...state.messageList, modifiedMessage ] 
+        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
       }
 
     case REMOVE_MESSAGE_FROM_INBOX:
-      modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
+      console.log('in reducer');
+    modifiedMessage = state.messageList.filter( message => message.messageId === action.messageId)[0];
       modifiedMessage.recipientUserIds = modifiedMessage.recipientUserIds.filter( recipient => recipient !== action.recipientUserId);
       //If there are no more recipients left in the list, return state without modified message (i.e. remove it)
       if ( modifiedMessage.recipientUserIds.length === 0 ) {
@@ -72,7 +73,7 @@ export function messageReducer( state = initialState, action: MessageActionTypes
       } else {
         return {
           ...state,
-          messageList: [ ...state.messageList, modifiedMessage ] 
+          messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
         }
       }
 
@@ -96,7 +97,7 @@ export function messageReducer( state = initialState, action: MessageActionTypes
       modifiedMessage.recipientUserIds.push(action.recipientUserId);
       return {
         ...state,
-        messageList: [ ...state.messageList, modifiedMessage ] 
+        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ] 
       }
 
     case MESSAGE_CONTENT_CHANGE:
@@ -104,7 +105,7 @@ export function messageReducer( state = initialState, action: MessageActionTypes
       modifiedMessage.messageContent = action.messsageContent
       return {
         ...state,
-        messageList: [ ...state.messageList, modifiedMessage ] 
+        messageList: [ ...state.messageList.filter( message => message.messageId !== action.messageId), modifiedMessage ]  
       }
 
     default:

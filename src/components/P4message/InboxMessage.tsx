@@ -18,7 +18,8 @@ export interface IInboxMessageProps {
 export class InboxMessage extends Component<IInboxMessageProps> {
 
   onClickRemoveMessage() {
-    removeMessageFromInbox(this.props.itemMessageId, this.props.loggedInUserId);
+    console.log('remove message');
+    this.props.removeMessageFromInbox(this.props.itemMessageId, this.props.loggedInUserId);
   }
 
   public render() {
