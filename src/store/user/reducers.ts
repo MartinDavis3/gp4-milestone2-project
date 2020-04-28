@@ -46,9 +46,9 @@ const initialState: UserState = {
       userId: 5,
       username: 'user5',
       password: 'pass5',
-      userPictureName: 'default',
+      userPictureName: 'daniel.jpg',
       userBackgroundPictureName: 'default',
-      userInformation: 'I like to dance',
+      userInformation: 'iam a singer ',
       userInbox: []
     },
     {
