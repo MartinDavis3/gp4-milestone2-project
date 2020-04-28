@@ -3,7 +3,7 @@ import * as React from 'react';
 import { RootState } from '../../store';
 import { signUp } from '../../store/user/actions';
 import { User } from '../../store/user/types'
-import { Grid, Form, Button, Divider, Header } from 'semantic-ui-react';
+import { Grid, Form, Button, Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 export interface IRegisterProps {
@@ -51,19 +51,16 @@ export class Register extends React.Component<IRegisterProps>
           console.log (signUp);
     return (
 
-      <Grid>
+      <Grid columns="equal">
 
 <Grid.Column width={1}></Grid.Column>
-<Grid.Column width={5}>
 
-</Grid.Column>
-<Grid.Column>      
 
-<Divider vertical></Divider>
-</Grid.Column>
 
-<Grid.Column width={8}> 
-<Header as='h2' color='blue' textAlign='left'>
+<Grid.Column width={9}> 
+<Grid.Row>
+</Grid.Row>
+<Header as='h2' color='green' textAlign='left' >
  Sign -Up
 </Header>
 <Form size='large' onSubmit ={this.newRegistration}>
@@ -75,7 +72,9 @@ export class Register extends React.Component<IRegisterProps>
     </Button>
 </Form>
 </Grid.Column>
+<Grid.Column>
 
+</Grid.Column>
 
 </Grid>  
     );

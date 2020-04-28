@@ -64,7 +64,7 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
             return (
                 <Button content='please sign in '
                 as={Link} 
-                to={`/Home/${this.state.displayedUser}`} 
+                to={`/`} 
                 onClick={() => this.changeDisplayedUser()}
               />
               

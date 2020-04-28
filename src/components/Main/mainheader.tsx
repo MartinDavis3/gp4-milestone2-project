@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Container, Header, Divider } from 'semantic-ui-react';
+import { Grid, Container, Header, Icon } from 'semantic-ui-react';
 
 export interface ImMainheaderProps {
 }
@@ -7,14 +7,19 @@ export interface ImMainheaderProps {
 export default class Mainheader extends React.Component<ImMainheaderProps> {
   public render() {
     return (
-      <Grid>
+      <Grid centered columns="equal">
+        
         <Grid.Column width={1}>      
-          <Divider vertical>
-          </Divider>
+         
+          
         </Grid.Column>
 
-        <Grid.Column width={5}>
-          <Container fluid>
+
+        <Grid.Column width={9}>
+          
+          <Container textAlign='center'>
+          <Icon circular inverted color="blue" name="users" size="large"  />
+
             <Header as='h1' color='blue' textAlign='center' size='huge'>
               Welcome to our social media website
             </Header> 
@@ -25,8 +30,7 @@ export default class Mainheader extends React.Component<ImMainheaderProps> {
         </Grid.Column>
 
         <Grid.Column>      
-          <Divider vertical>
-          </Divider>
+         
         </Grid.Column>
       </Grid> 
     );
