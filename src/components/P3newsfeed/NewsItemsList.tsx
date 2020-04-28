@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { RootState } from "../../store";
 import { NewsItem } from "../../store/news/types";
 import IndividualNewsItem from './IndividualNewsItem';
+import {Fragment} from 'react'
 
 export interface INewsItemsListProps {
   newsItemList: NewsItem[];
@@ -16,8 +17,11 @@ export class NewsItemsList extends React.Component<INewsItemsListProps> {
     return (
       <Segment>
         { newsItemList.map( newsItem => {
-          return ( <IndividualNewsItem key={newsItem.newsId} newsItemId={newsItem.newsId}/> )
-          } )
+          return ( 
+            <Fragment key={newsItem.newsId}>
+              <IndividualNewsItem newsItemId={newsItem.newsId}/>
+            </Fragment>
+          )} )
         }
       </Segment>
     );
