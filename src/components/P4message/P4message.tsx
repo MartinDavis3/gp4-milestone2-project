@@ -4,7 +4,8 @@ import MessageSendButton from "./MessageSendButton";
 import TextInput from "../TextInput";
 import UserList from "./UserList";
 import { Grid, Segment, Header } from "semantic-ui-react";
-import InputMessage from "./InputMessage";
+// import InputMessage from "./InputMessage";
+import InboxMessageList from './InboxMessageList'
 
 export interface IP4messageProps {}
 
@@ -32,8 +33,8 @@ export default class P4message extends React.Component<IP4messageProps> {
                 ></TextInput>
                 <MessageSendButton />
               </Segment>
-
-              <InputMessage />
+              <InboxMessageList/>
+              {/* <InputMessage /> */}
             </Grid.Column>
             <Grid.Column width={2}></Grid.Column>
           </Grid.Row>
