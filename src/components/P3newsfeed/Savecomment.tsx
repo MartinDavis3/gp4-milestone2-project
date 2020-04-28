@@ -13,19 +13,16 @@ import {
   Segment,
 } from "semantic-ui-react";
 import { connect } from "react-redux";
+import {incrementLikeCounter} from '../../store/news/actions'
 
 export interface ICommentsProps {
   saveComment: typeof saveComment;
   newsItemList: NewsItem[];
-  currentItem:number;
+  currentItem: number;
+  incrementLikeCounter: typeof incrementLikeCounter
 }
 
 export class Comments extends React.Component<ICommentsProps> {
-  generateID = (): number => {
-    let randomNumber: number = Math.floor(Math.random() * 1000);
-    randomNumber += this.props.newsItemList.length;
-    return randomNumber;
-  };
 
   newComment = (event: any) => {
     event.preventDefault();
@@ -35,16 +32,21 @@ export class Comments extends React.Component<ICommentsProps> {
       '[name="comment"]'
     );
     let commentFieldValue: string = "";
-    if (commentField !== null) commentFieldValue = commentField.value;
+    if (commentField !== null) { commentFieldValue = commentField.value }
     // Add new comment.
     
     this.props.saveComment(this.props.currentItem, commentFieldValue);
     event.target.reset();
-  };
+  }
+  
+  onLikeClick = () => {
+    const {currentItem, incrementLikeCounter} = this.props
+     incrementLikeCounter(currentItem);
+  }
 
   render() {
-    let { newsItemList } = this.props;
-    console.log(newsItemList);
+    const { newsItemList, currentItem } = this.props;
+    const currNewsItem = newsItemList.filter( newsItem => ( newsItem.newsId === currentItem ))[0]; 
 
     return (
       <Grid>
@@ -52,7 +54,7 @@ export class Comments extends React.Component<ICommentsProps> {
           <Grid.Column width={10} floated="right">
             <Card>
               <Card.Description>
-                <Button icon>
+                <Button icon onClick={this.onLikeClick}>
                   <Icon name="like" />
                   Like
                 </Button>
@@ -61,6 +63,7 @@ export class Comments extends React.Component<ICommentsProps> {
                   <Icon name="comment outline" />
                   Comment
                 </Button>
+                Likes: {currNewsItem.newsLikesCount}
               </Card.Description>
             </Card>
             <Segment>
@@ -96,7 +99,7 @@ const mapStateToProps = (state: RootState) => {
 };
 
 // Connect Redux and React using our values and "view!"
-export default connect(mapStateToProps, { saveComment })(Comments);
+export default connect(mapStateToProps, { saveComment, incrementLikeCounter })(Comments);
 
 
 //Add comment to try and allow "merging" of branch on github - can be removed after.

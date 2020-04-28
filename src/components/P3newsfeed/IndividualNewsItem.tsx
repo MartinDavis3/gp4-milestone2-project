@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { RootState } from '../../store';
 import { NewsItem } from '../../store/news/types'
 import { User } from '../../store/user/types'
+import Likescount from "./Likescount";
+import  Comments  from "./Savecomment";
 
 export interface IIndividualNewsItemProps {
   newsItemList: NewsItem[];
@@ -42,12 +44,9 @@ export class IndividualNewsItem extends React.Component<IIndividualNewsItemProps
               <p>{selectedNewsItem.newsContent} </p>
             </Grid.Column>
 
-            <Grid.Column width={4} color="teal">
-              <p> 
-                Comment
-                and
-                Like here
-              </p>
+            <Grid.Column width={4}>
+              <Likescount  currentItem={newsItemId} />
+              <Comments currentItem={newsItemId}/>
             </Grid.Column>
 
           </Grid.Row>

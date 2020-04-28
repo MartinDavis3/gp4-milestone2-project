@@ -11,20 +11,13 @@ export interface ILikescountProps {
 }
 
 export class Likescount extends React.Component<ILikescountProps>{
-    onLikeClick(): void {
-        this.props.incrementLikeCounter(this.props.currentItem);
-    }
-
 
 
     render() {
         return (
-            <button onClick={() => this.onLikeClick()} >
+            <button >
                 <i className="fas fa-heart"></i>
             </button>
-
-            
-
         )
     }
 
@@ -36,7 +29,6 @@ export class Likescount extends React.Component<ILikescountProps>{
         }
     }
 
-        // Connect Redux and React using our values and "view!"
         export default connect(
             mapStateToProps,
             { incrementLikeCounter }
