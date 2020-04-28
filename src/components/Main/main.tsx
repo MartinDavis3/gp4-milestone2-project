@@ -3,6 +3,7 @@ import Login from './login';
 import Mainheader from './mainheader';
 // import Signup from './signup';
 import Register from './signup'
+import { Grid } from 'semantic-ui-react';
 
 export interface IMainProps {
 }
@@ -12,20 +13,29 @@ export default class Main extends React.Component<IMainProps> {
     return (
 
   <React.Fragment>
-<Mainheader/>
-<br/>
-<br/>
+    <Grid>
+<Grid.Row columns={3}>
 
-<Login />
-<br/>
-<br/>
+      <Grid.Column>
+      <Login />
 
-<Register />
+      </Grid.Column>
 
-{/* <Signup/> */}
-<br/>
-<br/>
+      <Grid.Column>
+      <Mainheader/>
 
+      </Grid.Column>
+
+      <Grid.Column>
+      <Register />
+
+      </Grid.Column>
+
+      </Grid.Row>
+
+
+
+</Grid>
 </React.Fragment>
     );
   }

@@ -10,7 +10,6 @@ import  Comments  from "./Savecomment";
 
 export interface INewsItemsListProps {
   newsItemList: NewsItem[];
-  currentItem: number;
 }
 
 export class NewsItemsList extends React.Component<INewsItemsListProps> {
@@ -21,12 +20,9 @@ export class NewsItemsList extends React.Component<INewsItemsListProps> {
         {newsItemList.map((newsItem) => {
           return (
             <Fragment key={newsItem.newsId}>
-              <IndividualNewsItem
-                newsItemId={newsItem.newsId}
-              />
+              <IndividualNewsItem newsItemId={newsItem.newsId}/>
               <Likescount  currentItem={newsItem.newsId} />
-              
-            <Comments currentItem={newsItem.newsId}/>
+              <Comments currentItem={newsItem.newsId}/>
             </Fragment>
           );
         })}
