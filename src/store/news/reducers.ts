@@ -46,7 +46,7 @@ export function newsReducer( state = initialState, action: NewsActionType ): New
       modNewsItem.newsItemComment = action.comment;
       return {
         ...state,
-        newsItemList: [...state.newsItemList, modNewsItem]
+        newsItemList: [ ...state.newsItemList.filter( newsItem => newsItem.newsId !== action.newsId), modNewsItem]
       }
 
     default:

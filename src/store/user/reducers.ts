@@ -57,7 +57,7 @@ const initialState: UserState = {
       password: 'pass6',
       userPictureName: 'default',
       userBackgroundPictureName: 'default',
-      userInformation: 'My favourite meal is haggis, tatties and neaps',
+      userInformation: 'My favourite meal is haggis, tatties and neeps',
       userInbox: []
     }
   ],
@@ -87,7 +87,6 @@ export function userReducer(state = initialState, action: UserActionTypes): User
         userInformation: '',
         userInbox: []
       } 
-      console.log(newUser);
       return {
       
         ...state,
@@ -95,7 +94,6 @@ export function userReducer(state = initialState, action: UserActionTypes): User
       }
 
     case SIGN_OUT:
-      console.log(SIGN_OUT)
       return {
         ...state,
         loggedInUserId: 0,
@@ -107,7 +105,7 @@ export function userReducer(state = initialState, action: UserActionTypes): User
       modifiedUser.userInformation = action.userInformation;
       return {
         ...state,
-        userList: [ ...state.userList, modifiedUser ] 
+        userList: [ ...state.userList.filter( user => user.userId !== state.loggedInUserId), modifiedUser ] 
       }
       
     default:

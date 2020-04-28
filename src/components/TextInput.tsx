@@ -87,6 +87,3 @@ export default connect(
   mapStateToProps,
   { userInformationChange, messageContentChange }
 )(TextInput);
-
-
-//comment for github test - can be removed

@@ -5,9 +5,6 @@ import { RootState } from '../../store';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
-
-
 export interface IProfileCardProps  {
     profilesCard: User[];
     loggedInUserId: number;
@@ -27,13 +24,10 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
       private changeDisplayedUser() {
         if ( this.props.loggedInUserId !== 0 ) {
           let newDisplayedUser = this.state.displayedUser;
-          console.log(`user before increment: ${newDisplayedUser}`)
           newDisplayedUser++;
-          console.log(`user after increment: ${newDisplayedUser}`)
           if ( newDisplayedUser > this.props.profilesCard.length ) {
             newDisplayedUser = 1
           }
-          console.log(`user after limiter: ${newDisplayedUser}`)
           this.setState( { displayedUser: newDisplayedUser } );
         } else {
           this.setState( { displayedUser: 0 } );
@@ -42,7 +36,7 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
   
     public render() {
 
-        let { profilesCard ,loggedInUserId} = this.props;
+        let { profilesCard ,loggedInUserId } = this.props;
         let who = profilesCard[0].username;
         let who2 = profilesCard[1].username;
         let who3 = profilesCard[2].username;
@@ -71,7 +65,7 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
             );
         }
 
-        if (loggedInUserId === 1  ) {
+        if (this.state.displayedUser === 1  ) {
         return (
             
             <Grid divided="vertically">
@@ -123,7 +117,7 @@ export class ProfileCard extends React.Component<IProfileCardProps,IProfileCardS
 
         );
     }
-else if (loggedInUserId ===2){
+else if (this.state.displayedUser ===2){
 
     return (
         <Grid divided="vertically">
@@ -174,7 +168,7 @@ else if (loggedInUserId ===2){
     </Grid>
     );
 }
-else if (loggedInUserId ===3){
+else if (this.state.displayedUser ===3){
 
     return (
         <Grid divided="vertically">
@@ -222,7 +216,7 @@ else if (loggedInUserId ===3){
     </Grid>
     );
 }
-else if (loggedInUserId ===4){
+else if (this.state.displayedUser ===4){
     return (
         <Grid divided="vertically">
         <Segment>
@@ -269,7 +263,7 @@ else if (loggedInUserId ===4){
     </Grid>
     );
 }
-else if (loggedInUserId ===5){
+else if (this.state.displayedUser ===5){
     return (
         <Grid divided="vertically">
         <Segment>

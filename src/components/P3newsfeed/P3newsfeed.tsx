@@ -15,7 +15,7 @@ export default class P3newsfeed extends Component<IP3newsfeedProps> {
             <Grid.Column>Page 3. Newsfeed</Grid.Column>
           </Grid.Row>
 
-          <Grid.Row columns={3}>
+          <Grid.Row columns={1}>
             <Grid.Column width={1}></Grid.Column>
 
             <Grid.Column>
