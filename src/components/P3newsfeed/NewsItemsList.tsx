@@ -6,6 +6,7 @@ import { NewsItem } from "../../store/news/types";
 import Likescount from "./Likescount";
 import { Fragment } from "react";
 import IndividualNewsItem from "./IndividualNewsItem";
+import  Comments  from "./Savecomment";
 
 export interface INewsItemsListProps {
   newsItemList: NewsItem[];
@@ -18,20 +19,20 @@ export class NewsItemsList extends React.Component<INewsItemsListProps> {
       <Segment>
         {newsItemList.map((newsItem) => {
           return (
-            <Fragment>
+            <Fragment key={newsItem.newsId}>
               <IndividualNewsItem
-                key={newsItem.newsId}
                 newsItemId={newsItem.newsId}
-              />,
+              />
+              <Likescount  currentItem={newsItem.newsId} />
               
-              <Likescount key={newsItem.newsId} currentItem={newsItem.newsId} />
+            <Comments currentItem={newsItem.newsId}/>
             </Fragment>
           );
         })}
       </Segment>
     );
   }
-}
+  }
 
 const mapStateToProps = (state: RootState) => {
   return {
