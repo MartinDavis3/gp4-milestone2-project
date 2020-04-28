@@ -17,6 +17,7 @@ import { connect } from "react-redux";
 export interface ICommentsProps {
   saveComment: typeof saveComment;
   newsItemList: NewsItem[];
+  currentItem:number;
 }
 
 export class Comments extends React.Component<ICommentsProps> {
@@ -37,16 +38,7 @@ export class Comments extends React.Component<ICommentsProps> {
     if (commentField !== null) commentFieldValue = commentField.value;
     // Add new comment.
     
-    this.props.saveComment(2, commentFieldValue);
-
-      
-    /*console.log(commentField)
-            if ( commentField !== null ) commentField.value = '';
-            */
-
-
-        
-
+    this.props.saveComment(this.props.currentItem, commentFieldValue);
     event.target.reset();
   };
 

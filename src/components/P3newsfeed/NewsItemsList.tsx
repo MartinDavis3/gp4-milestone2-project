@@ -3,26 +3,34 @@ import { Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { RootState } from "../../store";
 import { NewsItem } from "../../store/news/types";
-import IndividualNewsItem from './IndividualNewsItem';
+import Likescount from "./Likescount";
+import { Fragment } from "react";
+import IndividualNewsItem from "./IndividualNewsItem";
 
 export interface INewsItemsListProps {
   newsItemList: NewsItem[];
 }
 
 export class NewsItemsList extends React.Component<INewsItemsListProps> {
-
   public render() {
     const { newsItemList } = this.props;
     return (
       <Segment>
-        { newsItemList.map( newsItem => {
-          return ( <IndividualNewsItem key={newsItem.newsId} newsItemId={newsItem.newsId}/> )
-          } )
-        }
+        {newsItemList.map((newsItem) => {
+          return (
+            <Fragment>
+              <IndividualNewsItem
+                key={newsItem.newsId}
+                newsItemId={newsItem.newsId}
+              />,
+              
+              <Likescount key={newsItem.newsId} currentItem={newsItem.newsId} />
+            </Fragment>
+          );
+        })}
       </Segment>
     );
   }
-
 }
 
 const mapStateToProps = (state: RootState) => {
@@ -31,4 +39,4 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-export default connect(mapStateToProps, { })(NewsItemsList);
+export default connect(mapStateToProps, {})(NewsItemsList);
